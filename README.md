@@ -1,4 +1,4 @@
-sdmx-json-examples
+sdmx-json-apps
 ==================
 
 Examples for SDMX-JSON
