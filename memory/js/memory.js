@@ -7,13 +7,13 @@ function cardClick() {
     if (!$(this).hasClass('flip')) {
         $(this).addClass('flip');
         var active = $('.activated');
-    if (active.length === 0) {
+        if (active.length === 0) {
             $(this).addClass('activated');
         } else if (active.data('id') === $(this).data('id')) {
             active.removeClass('activated');
             $(this).addClass('finished');
             active.addClass('finished');
-	    if ($('.click').not('.finished').length === 0) {
+	        if ($('.click').not('.finished').length === 0) {
                 alert('Congratulations, you won!');
             }
         } else {
@@ -32,7 +32,7 @@ function getCards(data, numCards) {
             }
             var measureDimensionValues = measureName.split(":"),
             card = [
-		cardId++,
+		        cardId++,
                 {
                     name:"Value",
                     value:parseFloat(data.dataSets[dataSetIndex].data[measureName])
