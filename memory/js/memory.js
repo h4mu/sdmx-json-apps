@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        $.getJSON('http://stats.oecd.org/SDMX-PROTO-JSON/data/REFSERIES/AUS+CAN../OECD?startTime=2005-01-01&json-format=jsoncodeindex', resultHandler);
+        $.getJSON('http://stats.oecd.org/SDMX-JSON/data/REFSERIES/AUS+CAN../OECD?startTime=2005&dimensionAtObservation=AllDimensions', resultHandler);
         $('h1').fadeIn(1000).delay(1000).fadeOut(1000);
 });
 
@@ -26,7 +26,7 @@ function cardClick() {
 function getCards(data, numCards) {
     var cards = [], cardId = 0;
     for (var dataSetIndex = 0; dataSetIndex < data.dataSets.length; dataSetIndex++) {
-        for (var measureName in data.dataSets[dataSetIndex].data) {
+        for (var measureName in data.dataSets[dataSetIndex].observations) {
             if (cards.length >= numCards) {
                 return cards;
             }
@@ -35,13 +35,13 @@ function getCards(data, numCards) {
 		        cardId++,
                 {
                     name:"Value",
-                    value:parseFloat(data.dataSets[dataSetIndex].data[measureName])
+                    value:parseFloat(data.dataSets[dataSetIndex].observations[measureName])
                 }
             ];
             for (var i = 0; i < measureDimensionValues.length; i++) {
                 card.push({
-                    name:data.structure.dimensions[i].name,
-                    value:data.structure.dimensions[i].codes[parseInt(measureDimensionValues[i])].name});
+                    name:data.structure.dimensions.observation[i].name,
+                    value:data.structure.dimensions.observation[i].values[parseInt(measureDimensionValues[i])].name});
             }
             cards.push(card);
         }
