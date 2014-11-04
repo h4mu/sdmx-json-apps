@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        $.getJSON('http://stats.oecd.org/SDMX-JSON/data/REFSERIES/AUS+CAN../OECD?startTime=2005&dimensionAtObservation=AllDimensions', resultHandler);
+        $.getJSON('http://stats.oecd.org/SDMX-JSON/data/NAAG/AUT+BEL+CZE+DNK+EST+FIN+FRA+DEU+GRC+HUN+IRL+ITA+LUX+NLD+POL+PRT+SVK+SVN+ESP+SWE+GBR.GDPCPC/OECD?startTime=2013&endTime=2013&dimensionAtObservation=AllDimensions', resultHandler);
         $('h1').fadeIn(1000).delay(1000).fadeOut(1000);
 });
 
